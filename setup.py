@@ -9,7 +9,7 @@ DIR = Path(__file__).parent
 def main():
     try:
         changelog = (DIR / 'CHANGELOG.md').read_text()
-        __version__ = re.findall(r"\[([0-9.]+)]", changelog)
+        __version__, *_ = re.findall(r"\[([0-9.]+)]", changelog)
 
     except (FileNotFoundError, ValueError):
         __version__ = '0.1.0'
