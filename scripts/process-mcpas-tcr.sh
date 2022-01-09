@@ -9,7 +9,7 @@ import srsly
 df = pd.read_csv('${FILE}', encoding='windows-1252', low_memory=False)
 df = df.where(pd.notnull(df), None)
 
-srsly.write_josnl('${TMP}.jsonl', df.to_dict(orient='records'))"
+srsly.write_josnl('${TMP}', df.to_dict(orient='records'))"
 python3 -c ${SCRIPT} 
 
 cat ${TMP} | jq -R -r '. | fromjson |
